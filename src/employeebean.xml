@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
+
+
+    <bean id="address1" class="com.foguz.Address">
+        <property name = "city" value="istanbul"/>
+        <property name = "state" value="turkey"/>
+        <property name = "zipCode" value="34"/>
+
+
+    </bean>
+    <bean id="address2" class="com.foguz.Address">
+        <property name = "city" value="elazıg"/>
+        <property name = "state" value="turkey"/>
+        <property name = "zipCode" value="23"/>
+
+
+    </bean>
+
+
+    <!--injection setter method -->
+
+    <bean id="employee1" class="com.foguz.Employee" init-method="myInit" destroy-method="myDestroy">
+        <property name = "eid" value="102"/>
+        <property name = "name" value="caner"/>
+        <property name = "eSalary" value="6000"/>
+        <property name = "Address" ref="address1"/>
+
+
+
+    </bean>
+
+    <!--injection constructor -->
+    <bean id="employee2" class="com.foguz.Employee" init-method="myInit" destroy-method="myDestroy">
+        <property name = "eid" value="103"/>
+        <property name = "name" value="orkun"/>
+        <property name = "eSalary" value="000"/>
+        <constructor-arg ref="address2"/>
+
+
+    </bean>
+
+</beans>
